@@ -1,0 +1,1051 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoWorld - Crypto Platform</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #180f2d;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        header {
+            padding: 20px 7%;
+            background: #211637;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #b69aff;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #e3dced;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover,
+        .text-link:hover {
+            color: #d1bdff;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 27px;
+            background: #b69aff;
+            color: #201433;
+            border-radius: 35px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 22px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #d3c2ff;
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #b69aff;
+        }
+
+        section {
+            padding: 90px 7%;
+            scroll-margin-top: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding-top: 115px;
+            padding-bottom: 90px;
+            background: radial-gradient(ellipse at top, #392458, #211536 50%, #180f2d);
+        }
+
+        .eyebrow {
+            color: #b69aff;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            max-width: 900px;
+            margin: 22px auto;
+            font-size: clamp(40px, 6vw, 76px);
+            line-height: 1.12;
+            letter-spacing: -2px;
+        }
+
+        h2 {
+            margin: 15px 0 20px;
+            font-size: clamp(30px, 4vw, 45px);
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        h3 {
+            margin: 15px 0 10px;
+            font-size: 21px;
+            line-height: 1.4;
+        }
+
+        p {
+            color: #c8bfd9;
+        }
+
+        .hero-description {
+            max-width: 670px;
+            margin: auto;
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .stats {
+            width: 100%;
+            max-width: 960px;
+            margin: 70px auto 0;
+            border-collapse: collapse;
+        }
+
+        .stats td {
+            width: 33.33%;
+            padding: 25px;
+            border-right: 1px solid #49365f;
+        }
+
+        .stats td:last-child {
+            border-right: none;
+        }
+
+        .stats h2 {
+            color: #b69aff;
+            margin: 0;
+            font-size: 40px;
+        }
+
+        .stats p {
+            margin-top: 5px;
+        }
+
+        .section-heading {
+            max-width: 720px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .section-heading p:last-child {
+            margin-top: 10px;
+        }
+
+        .cards {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 15px;
+            table-layout: fixed;
+        }
+
+        .cards td {
+            width: 33.33%;
+            padding: 28px;
+            vertical-align: top;
+            background: #261b40;
+            border: 1px solid #392952;
+            border-radius: 20px;
+        }
+
+        .card-icon {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 17px;
+            background: #3a2956;
+            color: #c5b1ff;
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        .cards td p {
+            font-size: 15px;
+        }
+
+        .text-link {
+            display: inline-block;
+            color: #b69aff;
+            font-weight: bold;
+            margin-top: 18px;
+        }
+
+        .soft-section {
+            background: #211635;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 190px;
+            object-fit: contain;
+            padding: 20px;
+            background: #332249;
+            border-radius: 14px;
+        }
+
+        .article-tag {
+            display: inline-block;
+            margin-top: 18px;
+            color: #b69aff;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-table {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            border-spacing: 20px;
+        }
+
+        .feature-table td {
+            width: 50%;
+            padding: 15px;
+            vertical-align: top;
+        }
+
+        .feature-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #49365f;
+        }
+
+        .feature-item strong {
+            font-size: 19px;
+        }
+
+        .feature-number {
+            color: #b69aff;
+            font-size: 14px;
+            margin-right: 12px;
+        }
+
+        .cta {
+            text-align: center;
+            background: radial-gradient(ellipse at center, #392555, #211536 65%);
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .team-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 15px;
+            table-layout: fixed;
+        }
+
+        .team-table td {
+            width: 33.33%;
+            padding: 30px 20px;
+            text-align: center;
+            vertical-align: top;
+            background: #261b40;
+            border: 1px solid #392952;
+            border-radius: 20px;
+        }
+
+        .avatar {
+            width: 105px;
+            height: 105px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #493364;
+            color: #d6c8ff;
+            font-size: 35px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        .social {
+            margin-top: 18px;
+        }
+
+        .social a {
+            display: inline-block;
+            margin: 0 7px;
+            color: #c2aaff;
+            font-weight: bold;
+        }
+
+        .traders {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            background: #261b40;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .traders th,
+        .traders td {
+            padding: 17px;
+            text-align: left;
+            border-bottom: 1px solid #49365f;
+        }
+
+        .traders th {
+            color: #b69aff;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .traders td {
+            color: #e4ddef;
+        }
+
+        .coin {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .coin img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .positive {
+            color: #8ce0b0 !important;
+        }
+
+        .pricing-card {
+            text-align: center;
+        }
+
+        .price {
+            font-size: 42px;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 20px 0;
+        }
+
+        .price span {
+            color: #c8bfd9;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 25px;
+        }
+
+        .pricing-card li {
+            padding: 9px 0;
+            border-bottom: 1px solid #49365f;
+            color: #d4cbe3;
+        }
+
+        .faq-list {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        details {
+            padding: 22px;
+            margin-bottom: 15px;
+            background: #261b40;
+            border: 1px solid #392952;
+            border-radius: 12px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        details p {
+            margin-top: 15px;
+        }
+
+        .contact {
+            text-align: center;
+            background: radial-gradient(ellipse at center, #392555, #211536 70%);
+        }
+
+        .contact p {
+            max-width: 620px;
+            margin: auto;
+        }
+
+        .contact-info {
+            margin: 35px auto 0;
+            border-collapse: separate;
+            border-spacing: 12px;
+            max-width: 850px;
+            width: 100%;
+        }
+
+        .contact-info td {
+            padding: 22px;
+            width: 33.33%;
+            background: #2b1d43;
+            border-radius: 12px;
+        }
+
+        footer {
+            padding: 55px 7% 25px;
+            background: #10091e;
+        }
+
+        .footer-table {
+            width: 100%;
+            border-spacing: 15px;
+        }
+
+        .footer-table td {
+            width: 33.33%;
+            vertical-align: top;
+            padding: 15px;
+        }
+
+        .footer-table h3 {
+            margin-top: 0;
+        }
+
+        .footer-table a {
+            display: block;
+            color: #c8bfd9;
+            margin: 7px 0;
+        }
+
+        .footer-table a:hover {
+            color: #b69aff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            margin-top: 25px;
+            border-top: 1px solid #38274c;
+            font-size: 13px;
+        }
+
+        @media (max-width: 760px) {
+            header {
+                padding: 20px 5%;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .hero {
+                padding-top: 75px;
+            }
+
+            .stats,
+            .stats tbody,
+            .stats tr,
+            .stats td,
+            .cards,
+            .cards tbody,
+            .cards tr,
+            .cards td,
+            .feature-table,
+            .feature-table tbody,
+            .feature-table tr,
+            .feature-table td,
+            .team-table,
+            .team-table tbody,
+            .team-table tr,
+            .team-table td,
+            .contact-info,
+            .contact-info tbody,
+            .contact-info tr,
+            .contact-info td,
+            .footer-table,
+            .footer-table tbody,
+            .footer-table tr,
+            .footer-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .stats td {
+                border-right: none;
+                border-bottom: 1px solid #49365f;
+            }
+
+            .cards {
+                border-spacing: 0;
+            }
+
+            .cards td,
+            .team-table td {
+                margin-bottom: 18px;
+            }
+
+            .feature-table {
+                border-spacing: 0;
+            }
+
+            .feature-table td {
+                padding: 10px 0;
+            }
+
+            .team-table {
+                border-spacing: 0;
+            }
+
+            .contact-info {
+                border-spacing: 0;
+            }
+
+            .contact-info td {
+                margin-bottom: 12px;
+            }
+
+            .footer-table {
+                border-spacing: 0;
+            }
+
+            .footer-table td {
+                padding: 15px 0;
+            }
+
+            .traders th,
+            .traders td {
+                padding: 11px 7px;
+                font-size: 12px;
+            }
+
+            .coin {
+                gap: 6px;
+            }
+
+            .coin img {
+                width: 23px;
+                height: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="#home" class="logo">₿ Crypto<span>World</span></a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#news">News</a>
+            <a href="#features">Features</a>
+            <a href="#markets">Markets</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero" id="home">
+        <p class="eyebrow">Crypto Platform</p>
+        <h1>Create, Hold or Trade Cryptocurrency</h1>
+        <p class="hero-description">
+            Discover the world of digital currencies. Explore blockchain technology,
+            cryptocurrency markets and the future of digital finance.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#services" class="button">Explore Platform →</a>
+            <a href="#features" class="button button-outline">Learn More</a>
+        </div>
+
+        <table class="stats">
+            <tr>
+                <td>
+                    <h2>5346</h2>
+                    <p>Wallets</p>
+                </td>
+                <td>
+                    <h2>2453</h2>
+                    <p>Clients</p>
+                </td>
+                <td>
+                    <h2>425</h2>
+                    <p>Traders</p>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="services">
+        <div class="section-heading">
+            <p class="eyebrow">Our Services</p>
+            <h2>Explore Our Services</h2>
+            <p>Discover the essential tools and concepts behind the cryptocurrency ecosystem.</p>
+        </div>
+
+        <table class="cards">
+            <tr>
+                <td>
+                    <div class="card-icon">₿</div>
+                    <h3>Crypto Wallets</h3>
+                    <p>Understand digital wallets, private keys and ways to manage digital assets.</p>
+                    <a href="https://bitcoin.org/" target="_blank" rel="noopener" class="text-link">Learn More →</a>
+                </td>
+                <td>
+                    <div class="card-icon">↗</div>
+                    <h3>Margin Trade</h3>
+                    <p>Learn about trading concepts, leverage risks and responsible market research.</p>
+                    <a href="https://www.investor.gov/" target="_blank" rel="noopener" class="text-link">Learn More →</a>
+                </td>
+                <td>
+                    <div class="card-icon">◇</div>
+                    <h3>Crypto Processing</h3>
+                    <p>Discover how cryptocurrency networks validate and record transactions.</p>
+                    <a href="https://ethereum.org/" target="_blank" rel="noopener" class="text-link">Learn More →</a>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="news" class="soft-section">
+        <div class="section-heading">
+            <p class="eyebrow">Latest Articles</p>
+            <h2>Tips &amp; Tricks</h2>
+            <p>Explore educational resources about cryptocurrency and blockchain technology.</p>
+        </div>
+
+        <table class="cards">
+            <tr>
+                <td>
+                    <img class="article-image" src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin logo">
+                    <span class="article-tag">Education</span>
+                    <h3>Understanding Crypto Wallets</h3>
+                    <p>Discover how cryptocurrency wallets work and why private keys matter.</p>
+                    <a href="https://bitcoin.org/" target="_blank" rel="noopener" class="text-link">Read Article →</a>
+                </td>
+                <td>
+                    <img class="article-image" src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum logo">
+                    <span class="article-tag">Technology</span>
+                    <h3>Introduction to Blockchain</h3>
+                    <p>Learn how blockchain technology records information across a network.</p>
+                    <a href="https://ethereum.org/" target="_blank" rel="noopener" class="text-link">Read Article →</a>
+                </td>
+                <td>
+                    <img class="article-image" src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="Solana logo">
+                    <span class="article-tag">Research</span>
+                    <h3>Exploring Digital Currency</h3>
+                    <p>Understand digital assets, cryptocurrency networks and market research.</p>
+                    <a href="https://solana.com/" target="_blank" rel="noopener" class="text-link">Read Article →</a>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="features">
+        <table class="feature-table">
+            <tr>
+                <td>
+                    <p class="eyebrow">Why Choose Us</p>
+                    <h2>Our Features</h2>
+                    <p>
+                        CryptoWorld offers a simple way to explore digital assets,
+                        blockchain concepts and cryptocurrency technology.
+                    </p>
+                    <a href="#contact" class="button">Explore Features →</a>
+                </td>
+                <td>
+                    <div class="feature-item">
+                        <strong><span class="feature-number">01.</span>Crypto Wallets</strong>
+                        <p>Learn about wallet types, private keys and digital asset storage.</p>
+                    </div>
+                    <div class="feature-item">
+                        <strong><span class="feature-number">02.</span>Margin Trading</strong>
+                        <p>Understand trading terminology and the risks associated with leverage.</p>
+                    </div>
+                    <div class="feature-item">
+                        <strong><span class="feature-number">03.</span>Create Cryptocurrency</strong>
+                        <p>Explore the basics of blockchain networks and digital tokens.</p>
+                    </div>
+                    <div class="feature-item">
+                        <strong><span class="feature-number">04.</span>Market Research</strong>
+                        <p>Learn how to research digital assets and verify information.</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="cta">
+        <p class="eyebrow">Start Exploring</p>
+        <h2>Create, Hold or Trade Cryptocurrency</h2>
+        <p>Build your understanding of blockchain and digital finance through reliable educational resources.</p>
+        <a href="#markets" class="button">Explore Markets →</a>
+    </section>
+
+    <section id="markets" class="soft-section">
+        <div class="section-heading">
+            <p class="eyebrow">Digital Assets</p>
+            <h2>Popular Cryptocurrencies</h2>
+            <p>A sample cryptocurrency table for your website design. Values are illustrative, not live market data.</p>
+        </div>
+
+        <table class="traders">
+            <tr>
+                <th>Asset</th>
+                <th>Symbol</th>
+                <th>Category</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="coin">
+                        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+                        <strong>Bitcoin</strong>
+                    </div>
+                </td>
+                <td>BTC</td>
+                <td>Digital Currency</td>
+                <td class="positive">Listed</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="coin">
+                        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+                        <strong>Ethereum</strong>
+                    </div>
+                </td>
+                <td>ETH</td>
+                <td>Blockchain Platform</td>
+                <td class="positive">Listed</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="coin">
+                        <img src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="Solana">
+                        <strong>Solana</strong>
+                    </div>
+                </td>
+                <td>SOL</td>
+                <td>Blockchain Platform</td>
+                <td class="positive">Listed</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="coin">
+                        <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="BNB">
+                        <strong>BNB</strong>
+                    </div>
+                </td>
+                <td>BNB</td>
+                <td>Blockchain Ecosystem</td>
+                <td class="positive">Listed</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="team">
+        <div class="section-heading">
+            <p class="eyebrow">Our Team</p>
+            <h2>Meet Our Team</h2>
+            <p>Sample team profiles for the CryptoWorld website.</p>
+        </div>
+
+        <table class="team-table">
+            <tr>
+                <td>
+                    <div class="avatar"><img src="./asset/john smith.jpg" alt="John Smith"></div>
+                    <h3>John Smith</h3>
+                    <p>Founder</p>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener">f</a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener">◎</a>
+                    </div>
+                </td>
+                <td>
+                    <div class="avatar"><img src="./asset/sarah palmer.jpg" alt="Sarah Palmer"></div>
+                    <h3>Sarah Palmer</h3>
+                    <p>Research Analyst</p>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener">f</a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener">◎</a>
+                    </div>
+                </td>
+                <td>
+                    <div class="avatar"><img src="./asset/adam swift.jpg" alt="Adam Swift"></div>
+                    <h3>Adam Swift</h3>
+                    <p>Web Developer</p>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener">f</a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener">◎</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="soft-section" id="traders">
+        <div class="section-heading">
+            <p class="eyebrow">Community</p>
+            <h2>Top Traders</h2>
+            <p>Sample profiles showing how a trader directory can be displayed.</p>
+        </div>
+
+        <table class="traders">
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Speciality</th>
+                <th>Profile</th>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>Alex Morgan</td>
+                <td>Blockchain Research</td>
+                <td><a href="#contact" class="text-link">View →</a></td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>Emma Wilson</td>
+                <td>Market Analysis</td>
+                <td><a href="#contact" class="text-link">View →</a></td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>Daniel Brown</td>
+                <td>Crypto Technology</td>
+                <td><a href="#contact" class="text-link">View →</a></td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="pricing">
+        <div class="section-heading">
+            <p class="eyebrow">Plans</p>
+            <h2>Choose Your Plan</h2>
+            <p>Example pricing cards for the website layout. These are design examples, not real offers.</p>
+        </div>
+
+        <table class="cards">
+            <tr>
+                <td class="pricing-card">
+                    <div class="card-icon">◇</div>
+                    <h3>Starter</h3>
+                    <p>For beginners learning about crypto.</p>
+                    <div class="price">Free</div>
+                    <ul>
+                        <li>✓ Educational articles</li>
+                        <li>✓ Basic crypto guides</li>
+                        <li>✓ Blockchain resources</li>
+                    </ul>
+                    <a href="#contact" class="button">Get Started</a>
+                </td>
+                <td class="pricing-card">
+                    <div class="card-icon">⬡</div>
+                    <h3>Explorer</h3>
+                    <p>For users who want to learn more.</p>
+                    <div class="price">₹499 <span>/ example</span></div>
+                    <ul>
+                        <li>✓ All starter resources</li>
+                        <li>✓ Advanced learning guides</li>
+                        <li>✓ Research checklists</li>
+                    </ul>
+                    <a href="#contact" class="button">Learn More</a>
+                </td>
+                <td class="pricing-card">
+                    <div class="card-icon">✦</div>
+                    <h3>Professional</h3>
+                    <p>For deeper educational research.</p>
+                    <div class="price">₹999 <span>/ example</span></div>
+                    <ul>
+                        <li>✓ All explorer resources</li>
+                        <li>✓ Detailed learning material</li>
+                        <li>✓ Research templates</li>
+                    </ul>
+                    <a href="#contact" class="button">Learn More</a>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="faq" class="soft-section">
+        <div class="section-heading">
+            <p class="eyebrow">Questions &amp; Answers</p>
+            <h2>Frequently Asked Questions</h2>
+            <p>Some common questions about cryptocurrency and blockchain.</p>
+        </div>
+
+        <div class="faq-list">
+            <details>
+                <summary>What is cryptocurrency?</summary>
+                <p>Cryptocurrency is a type of digital asset that uses cryptographic techniques and may operate on a blockchain network.</p>
+            </details>
+
+            <details>
+                <summary>What is a crypto wallet?</summary>
+                <p>A crypto wallet helps users manage the keys used to access their digital assets.</p>
+            </details>
+
+            <details>
+                <summary>Is cryptocurrency risk-free?</summary>
+                <p>No. Cryptocurrency prices can be volatile, and users can face financial, security and regulatory risks.</p>
+            </details>
+
+            <details>
+                <summary>What is blockchain technology?</summary>
+                <p>A blockchain is a type of digital ledger that records transactions across a network according to its rules.</p>
+            </details>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <p class="eyebrow">Get In Touch</p>
+        <h2>Let's Explore Crypto Together</h2>
+        <p>
+            Have a question about our educational website? Get in touch
+            to learn more about cryptocurrency and blockchain technology.
+        </p>
+
+        <a href="mailto:hello@example.com" class="button">Contact Us →</a>
+
+        <table class="contact-info">
+            <tr>
+                <td>
+                    <div class="card-icon" style="margin:auto;">✉</div>
+                    <h3>Email</h3>
+                    <p>hello@example.com</p>
+                </td>
+                <td>
+                    <div class="card-icon" style="margin:auto;">◎</div>
+                    <h3>Social Media</h3>
+                    <p>Connect with our community.</p>
+                </td>
+                <td>
+                    <div class="card-icon" style="margin:auto;">⌖</div>
+                    <h3>Information</h3>
+                    <p>Educational crypto resources.</p>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+</main>
+
+<footer>
+    <table class="footer-table">
+        <tr>
+            <td>
+                <a href="#home" class="logo">₿ Crypto<span>World</span></a>
+                <p style="margin-top:15px;">
+                    Learn about digital currencies, blockchain and crypto technology.
+                </p>
+                <div class="social">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </td>
+            <td>
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#news">Articles</a>
+                <a href="#features">Features</a>
+            </td>
+            <td>
+                <h3>Explore</h3>
+                <a href="#markets">Cryptocurrencies</a>
+                <a href="#team">Our Team</a>
+                <a href="#traders">Top Traders</a>
+                <a href="#faq">FAQs</a>
+                <a href="#contact">Contact</a>
+            </td>
+        </tr>
+    </table>
+
+    <div class="footer-bottom">
+        <p>© 2026 CryptoWorld. Educational website project. Sample content only.</p>
+        <p style="margin-top:8px;">Cryptocurrency involves risk. This website is for educational purposes only.</p>
+    </div>
+</footer>
+
+</body>
+</html>
